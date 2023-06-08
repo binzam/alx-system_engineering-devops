@@ -6,4 +6,8 @@
 * touch hello -> Crete an empty file __hello__
 * chmod u+x hello -> Add executive permission to the owner of the file __hello__
 * chmod u+x,g+x,o+r hello -> Add exectutive permission to owner and group,read permission to others ,to the file __hello__
+* chmod ugo+x hello -> Adds execution permission to the owner, the group owner and the other users, to the file __hello__
+* chmod 007 hello -> Owner: no permission at all,Owner: no permission at all,Other users: all the permissions
+* chmod 753 hello -> set the mode to > '-rwxr-x-wx'
+* chmod --reference=olleh hello -> sets the mode of the file hello the same as olleh’s mode
 
