@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Groups visitors by IP and HTTP status code, and
+# Displays the data sorted by the number of occurrences.
+log_file="apache-access.log"
+awk '{print $1,$9}' "$log_file" | sort | uniq -c | sort -nr
