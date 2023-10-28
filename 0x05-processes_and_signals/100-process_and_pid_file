@@ -6,27 +6,16 @@
 # Deletes the file /var/run/myscript.pid and terminates itself when receiving a SIGQUIT or SIGTERM signal
 
 pid_file="/var/run/myscript.pid"
-
-terminate_script() {
-    if [[ -f "$pid_file" ]]; then
-        rm "$pid_file"
-    fi
+terminator() {
+    rm "$pid_file"
     exit
 }
 
-sigterm_handler() {
-    echo "I hate the kill command"
-}
+echo "$$" >"$pid_file"
 
-sigint_handler() {
-    echo "Y U no love me?!"
-}
-
-trap terminate_script SIGQUIT SIGTERM
-trap sigterm_handler SIGTERM
-trap sigint_handler SIGINT
-
-echo $$ >"$pid_file"
+trap 'echo "Y U no love me?!"' SIGINT
+trap 'echo "I hate the kill command" && terminator' SIGTERM
+trap 'terminator' SIGQUIT
 
 while true; do
     echo "To infinity and beyond"
