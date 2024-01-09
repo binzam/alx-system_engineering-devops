@@ -6,12 +6,13 @@ sudo apt-get install -y haproxy
 echo "ENABLED=1" | sudo tee /etc/default/haproxy
 
 echo "
-backend my_backend
+listen my_servers
+	bind *:80
 	balance roundrobin
+	mode http
 	server 442108-web-01 35.153.98.182:80 check
 	server 442108-web-02 54.172.84.26:80 check
 " | sudo tee -a /etc/haproxy/haproxy.cfg
 
 haproxy -c -f /etc/haproxy/haproxy.cfg
-systemctl restart haproxy
-sudo service haproxy start
+sudo service haproxy restart
