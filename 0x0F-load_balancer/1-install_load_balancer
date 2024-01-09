@@ -2,10 +2,7 @@
 # install haproxy
 
 sudo apt-get update
-
-sudo apt-get install --no-install-recommends software-properties-common
-sudo add-apt-repository ppa:vbernat/haproxy-2.0
-sudo apt-get install haproxy=2.0.\*
+sudo apt-get install -y haproxy
 echo "ENABLED=1" | sudo tee /etc/default/haproxy
 echo "
 backend my_backend
