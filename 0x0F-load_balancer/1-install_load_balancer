@@ -4,10 +4,12 @@
 sudo apt-get update
 sudo apt-get install -y haproxy
 echo "ENABLED=1" | sudo tee /etc/default/haproxy
+
 echo "
 backend my_backend
 	balance roundrobin
-	server 366003-web-01 52.3.253.61:80 check
-	server 366003-web-02 100.25.14.73:80 check
+	server 442108-web-01 35.153.98.182:80 check
+	server 442108-web-02 54.172.84.26:80 check
 " | sudo tee /etc/haproxy/haproxy.cfg
+
 sudo service haproxy start
