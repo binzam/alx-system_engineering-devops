@@ -13,5 +13,5 @@ backend my_backend
 " | sudo tee -a /etc/haproxy/haproxy.cfg
 
 haproxy -c -f /etc/haproxy/haproxy.cfg
-
+systemctl restart haproxy
 sudo service haproxy start
