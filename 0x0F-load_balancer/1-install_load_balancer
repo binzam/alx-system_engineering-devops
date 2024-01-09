@@ -5,11 +5,11 @@ sudo apt-get update
 apt-get install --no-install-recommends software-properties-common
 add-apt-repository ppa:vbernat/haproxy-2.0
 apt-get install haproxy=2.0.\*
-echo "ENABLED=1" > /etc/default/haproxy
+echo "ENABLED=1" | sudo tee /etc/default/haproxy
 echo "
 backend my_backend
 	balance roundrobin
 	server 366003-web-01 52.3.253.61:80 check
 	server 366003-web-02 100.25.14.73:80 check
-" >> /etc/haproxy/haproxy.cfg
+" | sudo tee /etc/haproxy/haproxy.cfg
 sudo service haproxy start
