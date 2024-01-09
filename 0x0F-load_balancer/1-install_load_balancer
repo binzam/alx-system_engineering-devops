@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# install haproxy
+
+sudo apt-get update
+apt-get install --no-install-recommends software-properties-common
+add-apt-repository ppa:vbernat/haproxy-2.0
+apt-get install haproxy=2.0.\*
