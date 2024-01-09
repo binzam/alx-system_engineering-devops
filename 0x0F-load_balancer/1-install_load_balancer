@@ -3,7 +3,6 @@
 
 sudo apt-get update
 sudo apt-get install -y haproxy
-echo "ENABLED=1" | sudo tee /etc/default/haproxy
 
 echo "
 listen my_servers
@@ -14,5 +13,4 @@ listen my_servers
 	server 442108-web-02 54.172.84.26:80 check
 " | sudo tee -a /etc/haproxy/haproxy.cfg
 
-haproxy -c -f /etc/haproxy/haproxy.cfg
 sudo service haproxy restart
