@@ -22,5 +22,6 @@ if __name__ == "__main__":
                 task.get("completed"),
                 task.get("title"),
             ]
-            my_writer = csv.writer(csvfile, delimiter=",", quoting=csv.QUOTE_ALL)
+            my_writer = csv.writer(csvfile, delimiter=",",
+                                   quoting=csv.QUOTE_ALL)
             my_writer.writerow(input_variable)
